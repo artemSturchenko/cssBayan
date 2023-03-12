@@ -1,0 +1,98 @@
+.accordion-container {
+    /* Стиль контейнера*/
+    display: flex;
+    align-items: center;
+    align-self: center;
+    justify-content: space-between;
+    flex-direction: column;
+    width: 800px;
+    margin: 0 auto;
+    max-width: 800px;
+}
+
+.accordion {
+    /* стилистика аккордеона*/
+    width: 800px;
+    border-bottom: 1px solid yellowgreen;
+    overflow: hidden;
+    margin-bottom: 16px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
+}
+
+.accordion-header {
+    /* стилистика header'a*/
+    width: 800px;
+    padding: 12px;
+    cursor: pointer;
+    font-weight: bold;
+    color: blue;
+    position: relative;
+    text-align: left;
+    padding: auto;
+}
+
+.accordion-header.active {
+    /* так выглядит активный header*/
+    color: black;
+}
+
+.accordion-content {
+    /*как выглядит контент, на который нет наведения*/
+    width: 800px;
+    display: none;
+    transition: all 0.3s ease-in;
+}
+
+.accordion .accordion-content.active {
+    /* активная четвертая секция*/
+    display: block;
+}
+
+.accordion:hover .accordion-content:not(.active) {
+    /*как выглядит контент, кроме четвертого, который активен по умолчанию, если на него есть наведение*/
+    display: block;
+}
+
+.accordion-container:hover .accordion-header {
+    /*Как выглядят header'ы*/
+    color: black;
+}
+
+.accordion-container:hover .accordion-header::after {
+    /*Добавление "+" к хедеру*/
+    content: "+";
+    position: absolute;
+    right: 16px;
+    font-size: 24px;
+    color: black;
+}
+
+.accordion-container:hover .accordion-header:hover::after {
+    /*Добавление "х" к хедеру*/
+    content: "x";
+    font-weight: normal;
+    color: black;
+    /* отображаем кнопку "+" при наведении курсора */
+}
+
+.accordion-container:hover .accordion-header.active::after {
+    content: "x";
+    position: absolute;
+    right: 16px;
+    font-size: 24px;
+    color: black;
+    font-weight: normal;
+}
+
+.accordion-header:hover::after {
+    content: "x";
+    font-weight: bold;
+}
+
+img {
+    display: block;
+    margin: 0 auto;
+}
